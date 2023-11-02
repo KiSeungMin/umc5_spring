@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Review extends BaseEntity {
+public class Inquiry extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +24,12 @@ public class Review extends BaseEntity {
     @Column(nullable = false, length = 200)
     private String content;
 
-    private Float score;
+    private boolean status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
-    private List<ReviewImage> imageUrlList = new ArrayList<>();
+    @OneToMany(mappedBy = "inquiry", cascade = CascadeType.ALL)
+    private List<InquiryImage> imageUrlList = new ArrayList<>();
 }
