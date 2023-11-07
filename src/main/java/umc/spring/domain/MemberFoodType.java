@@ -1,7 +1,6 @@
 package umc.spring.domain;
 
 import lombok.*;
-import umc.spring.domain.base.BaseEntity;
 
 import javax.persistence.*;
 
@@ -10,19 +9,17 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Alarm extends BaseEntity {
+public class MemberFoodType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String message;
-
-    @Column(nullable = false)
-    private boolean status;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "foodCategory_id")
+    private FoodCategory foodCategory;
 }

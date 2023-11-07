@@ -24,6 +24,7 @@ public class Inquiry extends BaseEntity {
     @Column(nullable = false, length = 200)
     private String content;
 
+    @Column(nullable = false)
     private boolean status;
 
     @ManyToOne(fetch = FetchType.LAZY)
