@@ -1,9 +1,10 @@
 package umc.spring.service.TempService;
 
-public class TempCommandQueryImpl implements TempQueryService {
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-    @Override
-    public void CheckFlag(Integer flag) {
+@Service
+@RequiredArgsConstructor
+public class TempCommandQueryImpl implements TempCommandService {
 
-    }
 }
